@@ -1,7 +1,6 @@
-import ExpenseItem from './components/ExpenseItem'
+import Expenses from './components/Expenses';
 
 function App() {
-
 	const expenses = [{
 		id: 'e1',
 		title: '자동차 보험',
@@ -26,18 +25,9 @@ function App() {
 	return (
 			<div>
 				<h2>Let's get started!</h2>
-				<ExpenseItem title={expenses[0].title}
-										 amount={expenses[0].amount.toLocaleString('ko-KR', {style: 'currency', currency: 'KRW'})}
-										 date={expenses[0].date}/>
-				<ExpenseItem title={expenses[1].title}
-										 amount={expenses[1].amount.toLocaleString('ko-KR', {style: 'currency', currency: 'KRW'})}
-										 date={expenses[1].date}/>
-				<ExpenseItem title={expenses[2].title}
-										 amount={expenses[2].amount.toLocaleString('ko-KR', {style: 'currency', currency: 'KRW'})}
-										 date={expenses[2].date}/>
-				<ExpenseItem title={expenses[3].title}
-										 amount={expenses[3].amount.toLocaleString('ko-KR', {style: 'currency', currency: 'KRW'})}
-										 date={expenses[3].date}/>
+				<div>
+					<Expenses item={expenses}/>
+				</div>
 			</div>
 	);
 }
