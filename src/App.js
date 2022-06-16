@@ -1,3 +1,4 @@
+import React from 'react';
 import Expenses from './components/Expenses';
 
 function App() {
@@ -21,13 +22,12 @@ function App() {
 		title: '자동차 기름 값',
 		amount: 50000,
 		date: new Date(2021, 11, 21)
-	}]
+	}];
+
 	return (
 			<div>
 				<h2>Let's get started!</h2>
-				<div>
-					<Expenses item={expenses}/>
-				</div>
+				<Expenses items={expenses} />
 			</div>
 	);
 }

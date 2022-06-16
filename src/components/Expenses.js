@@ -1,24 +1,26 @@
 import ExpenseItem from "./ExpenseItem";
+import Card from './Card'
 import './Expenses.css'
+
 function Expenses(props) {
 	const option = {
 		style: 'currency', currency: 'KRW'
 	}
 	return (
-			<div className = 'expenses'>
-				<ExpenseItem title={props.item[0].title}
-										 amount={props.item[0].amount.toLocaleString('ko-KR', option)}
-										 date={props.item[0].date}/>
-				<ExpenseItem title={props.item[1].title}
-										 amount={props.item[1].amount.toLocaleString('ko-KR', option)}
-										 date={props.item[1].date}/>
-				<ExpenseItem title={props.item[2].title}
-										 amount={props.item[2].amount.toLocaleString('ko-KR', option)}
-										 date={props.item[2].date}/>
-				<ExpenseItem title={props.item[3].title}
-										 amount={props.item[3].amount.toLocaleString('ko-KR', option)}
-										 date={props.item[3].date}/>
-			</div>
+			<Card className='expenses'>
+				<ExpenseItem title={props.items[0].title}
+										 amount={props.items[0].amount.toLocaleString('ko-KR', option)}
+										 date={props.items[0].date}/>
+				<ExpenseItem title={props.items[1].title}
+										 amount={props.items[1].amount.toLocaleString('ko-KR', option)}
+										 date={props.items[1].date}/>
+				<ExpenseItem title={props.items[2].title}
+										 amount={props.items[2].amount.toLocaleString('ko-KR', option)}
+										 date={props.items[2].date}/>
+				<ExpenseItem title={props.items[3].title}
+										 amount={props.items[3].amount.toLocaleString('ko-KR', option)}
+										 date={props.items[3].date}/>
+			</Card>
 	)
 }
 
