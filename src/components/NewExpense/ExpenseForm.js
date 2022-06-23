@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './ExpenseForm.css'
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
 	const [enteredTitle, setEnteredTitle] = useState('');
 	const [enteredAmount, setEnteredAmount] = useState('');
 	const [enteredDate, setEnteredDate] = useState('');
@@ -43,6 +43,7 @@ const ExpenseForm = () => {
 			date: new Date(enteredDate),
 		}
 		console.log(expenseData)
+		props.onSaveExpenseData(); // NewExpense.js 부모 컴포넌트의 함수 호출
 		// 입력 타이틀 금액 날짜 초기화
 		setEnteredTitle('');
 		setEnteredAmount('');
