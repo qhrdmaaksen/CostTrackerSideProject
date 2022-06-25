@@ -6,7 +6,7 @@ const ExpensesFilter = () => {
 	return (
 			<div className='expenses-filter'>
 				<div className='expenses-filter__control'>
-					<label>Filter by year</label>
+					<label>연도를 선택해 주세요.</label>
 					<select>
 						<option value='2022'>2022</option>
 						<option value='2021'>2021</option>
