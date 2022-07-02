@@ -39,11 +39,11 @@ const ExpenseForm = (props) => {
 		event.preventDefault();
 		const expenseData = {
 			title: enteredTitle,
-			amount: enteredAmount + ' 원',
+			amount: enteredAmount,
 			date: new Date(enteredDate),
 		}
 		console.log(expenseData)
-		props.onSaveExpenseData(); // NewExpense.js 부모 컴포넌트의 함수 호출
+		props.onSaveExpenseData(expenseData); // NewExpense.js 부모 컴포넌트의 함수 호출
 		// 입력 타이틀 금액 날짜 초기화
 		setEnteredTitle('');
 		setEnteredAmount('');

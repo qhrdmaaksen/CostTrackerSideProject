@@ -11,7 +11,7 @@ const ExpensesFilter = (props) => {
 			<div className='expenses-filter'>
 				<div className='expenses-filter__control'>
 					<label>연도를 선택해 주세요.</label>
-					<select onChange={dropDownChangeHandler}>
+					<select value={props.selected} onChange={dropDownChangeHandler}> {/*연도 양방향 바인딩 주고받기*/}
 						<option value='2022'>2022</option>
 						<option value='2021'>2021</option>
 						<option value='2020'>2020</option>
