@@ -22,6 +22,11 @@ const DUMMY_EXPENSES = [{
 	title: '자동차 기름 값',
 	amount: 50000,
 	date: new Date(2021, 11, 21)
+},{
+	id: 'e5',
+	title: '화장품',
+	amount: '50000',
+	date: new Date(2020,6,10),
 }];
 
 function App() {

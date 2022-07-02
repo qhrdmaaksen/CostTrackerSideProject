@@ -9,31 +9,30 @@ const Expenses = (props) => {
 		style: `currency`, currency: `KRW`
 	}
 	const [filteredYear, setFilteredYear] = useState('2020')
+
 	const filterChangeHandler = (selectedYear) => {
 		setFilteredYear(selectedYear)
 		console.log('Expense.js filterChangeHandler');
 		console.log(selectedYear);
 	}
-	const filteredExpenses = props.items.filter(expense => {
-		return expense.date.getFullYear().toString() === filteredYear;
+	const filteredExpenses = props.items.filter((selectedYear) => {
+		return selectedYear.date.getFullYear().toString() === filteredYear;
 	})
-	let expensesContent = <p>No expenses found</p>
-
-	if (filteredExpenses.length > 0) {
-		expensesContent = filteredExpenses.map((expense) => (
-			<ExpenseItem key={expense.id} title={expense.title} amount={expense.amount} date={expense.date}/>
-		))
+	let expenseContent = <p>해당 연도에 추가된 비용이 없습니다.</p>;
+	if (filteredExpenses.length > 0 ) {
+		expenseContent = filteredExpenses.map((expense) =>
+				<ExpenseItem title={expense.title}
+										 amount={expense.amount.toLocaleString('ko-KR', option)}
+										 date={expense.date}
+										 key={expense.id}
+				/>)
 	}
 
 	return (
 			<div>
 				<Card className='expenses'>
 					<ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
-					{props.items.map((expense) =>
-							<ExpenseItem title={expense.title}
-													 amount={expense.amount.toLocaleString('ko-KR', option)}
-													 date={expense.date}/>)}
-					{expensesContent}
+					{expenseContent}
 				</Card>
 			</div>
 	)
