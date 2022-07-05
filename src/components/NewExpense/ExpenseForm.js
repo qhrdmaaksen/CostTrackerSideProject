@@ -13,6 +13,7 @@ const ExpenseForm = (props) => {
 		EnteredDate: '',
 	})*/
 
+	// ---- 제목 변경에대한 이벤트 함수 ----
 	const titleChangeHandler = (event) => {
 		/*setUserInput({
 			...userInput,
@@ -23,6 +24,7 @@ const ExpenseForm = (props) => {
 		})*/
 		setEnteredTitle(event.target.value);
 	}
+	// ---- 가격 변경에대한 이벤트 함수 ----
 	const amountChangeHandler = (event) => {
 		/*setUserInput({
 			...userInput,
@@ -30,6 +32,7 @@ const ExpenseForm = (props) => {
 		})*/
 		setEnteredAmount(event.target.value);
 	}
+	// ---- 날짜 변경에대한 이벤트 함수 ----
 	const dateChangeHandler = (event) => {
 		/*setUserInput({
 			...userInput,
@@ -37,6 +40,7 @@ const ExpenseForm = (props) => {
 		})*/
 		setEnteredDate(event.target.value);
 	}
+	// ---- form 에서 저장된 이벤트 데이터 처리 함수 ----
 	const submitHandler = (event) => {
 		event.preventDefault();
 		const expenseData = {
@@ -51,6 +55,7 @@ const ExpenseForm = (props) => {
 		setEnteredAmount('');
 		setEnteredDate('');
 	}
+	// ---- 입력 초기화 누를 시 입력된 필드 초기화 및 title focus 함수 ----
 	const onResetText = () => {
 		setInputText({enteredTitle: "", enteredAmount: "", enteredDate: ""});
 		inputFocusText.current.focus();

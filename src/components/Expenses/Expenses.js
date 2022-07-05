@@ -1,40 +1,30 @@
 import React, {useState} from 'react';
-import ExpenseItem from "./ExpenseItem";
 import Card from '../UI/Card'
 import './Expenses.css'
 import ExpensesFilter from '../NewExpense/ExpensesFilter'
+import ExpensesList from "./ExpensesList";
 
 const Expenses = (props) => {
-	const option = {
-		style: `currency`, currency: `KRW`
-	}
 	const [filteredYear, setFilteredYear] = useState('2020')
 
+	// ---- ExpensesFilter 에서 연도 변경 시 이벤트 값을 받아 상태 변환 해주는 함수 ----
 	const filterChangeHandler = (selectedYear) => {
 		setFilteredYear(selectedYear)
 		console.log('Expense.js filterChangeHandler');
 		console.log(selectedYear);
 	}
+	// ---- 선택된 연도에 따른 데이터 출력 함수 ----
 	const filteredExpenses = props.items.filter((selectedYear) => {
 		return selectedYear.date.getFullYear().toString() === filteredYear;
 	})
-	let expenseContent = <p>해당 연도에 추가된 비용이 없습니다.</p>;
-	if (filteredExpenses.length > 0 ) {
-		expenseContent = filteredExpenses.map((expense) =>
-				<ExpenseItem title={expense.title}
-										 amount={expense.amount.toLocaleString('ko-KR', option)}
-										 date={expense.date}
-										 key={expense.id}
-				/>)
-	}
 
 	return (
-			<div>
+			<li>
 				<Card className='expenses'>
 					<ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler}/>
-					{expenseContent}
+					<ExpensesList items={filteredExpenses}/>
 				</Card>
-			</div>
+			</li>
 	)
 }
 

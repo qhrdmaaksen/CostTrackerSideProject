@@ -22,21 +22,22 @@ const DUMMY_EXPENSES = [{
 	title: '자동차 기름 값',
 	amount: 50000,
 	date: new Date(2021, 11, 21)
-},{
+}, {
 	id: 'e5',
 	title: '화장품',
 	amount: '50000',
-	date: new Date(2020,6,10),
+	date: new Date(2020, 6, 10),
 }];
 
 function App() {
 	const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
+	// ---- NewExpense.js 에서 받은 추가된 비용 이벤트 처리 함수 ----
 	const addExpenseHandler = (expenses) => {
 		console.log('App js 임')
 		setExpenses((prevExpenses) => {
-				return [expenses, ...prevExpenses]
-			}
+					return [expenses, ...prevExpenses]
+				}
 		)
 		console.log(expenses)
 	}

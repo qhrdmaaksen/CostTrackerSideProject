@@ -3,6 +3,7 @@ import React from 'react';
 import './ExpensesFilter.css';
 
 const ExpensesFilter = (props) => {
+	// ---- 선택된 연도 이벤트 처리 함수 ----
 	const dropDownChangeHandler = (event) => {
 		props.onChangeFilter(event.target.value)
 		console.log(event.target.value)
