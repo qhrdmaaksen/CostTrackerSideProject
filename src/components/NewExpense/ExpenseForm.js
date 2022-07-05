@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import './ExpenseForm.css'
 
 const ExpenseForm = (props) => {
 	const [enteredTitle, setEnteredTitle] = useState('');
 	const [enteredAmount, setEnteredAmount] = useState('');
 	const [enteredDate, setEnteredDate] = useState('');
+	const [inputText, setInputText] = useState("")
+	const inputFocusText = useRef();
 	/*const [userInput, setUserInput] = useState({ 요로케 사용하기도함 state 들을 묶어서
 		EnteredTitle: '',
 		EnteredAmount: '',
@@ -49,12 +51,16 @@ const ExpenseForm = (props) => {
 		setEnteredAmount('');
 		setEnteredDate('');
 	}
+	const onResetText = () => {
+		setInputText({enteredTitle: "", enteredAmount: "", enteredDate: ""});
+		inputFocusText.current.focus();
+	}
 	return (
 			<form action="" onSubmit={submitHandler}>
 				<div className="new-expense__controls">
 					<div className="new-expense__control">
 						<label>Title</label>
-						<input type="text" value={enteredTitle} onChange={titleChangeHandler}/>
+						<input type="text" ref={inputFocusText} value={enteredTitle} onChange={titleChangeHandler}/>
 					</div>
 					<div className="new-expense__control">
 						<label>Amount</label>
@@ -66,7 +72,9 @@ const ExpenseForm = (props) => {
 					</div>
 				</div>
 				<div className="new-expense__actions">
+					<button onClick={onResetText}>입력 초기화</button>
 					<button type="submit">비용 추가</button>
+					<button onCancel={props.onCancel}>취소</button>
 				</div>
 			</form>
 	)
