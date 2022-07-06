@@ -5,7 +5,7 @@ const ExpenseForm = (props) => {
 	const [enteredTitle, setEnteredTitle] = useState('');
 	const [enteredAmount, setEnteredAmount] = useState('');
 	const [enteredDate, setEnteredDate] = useState('');
-	const [inputText, setInputText] = useState("")
+	/*const [inputText, setInputText] = useState("")*/
 	const inputFocusText = useRef();
 	/*const [userInput, setUserInput] = useState({ 요로케 사용하기도함 state 들을 묶어서
 		EnteredTitle: '',
@@ -56,10 +56,10 @@ const ExpenseForm = (props) => {
 		setEnteredDate('');
 	}
 	// ---- 입력 초기화 누를 시 입력된 필드 초기화 및 title focus 함수 ----
-	const onResetText = () => {
+	/*const onResetText = () => {
 		setInputText({enteredTitle: "", enteredAmount: "", enteredDate: ""});
 		inputFocusText.current.focus();
-	}
+	}*/
 	return (
 			<form action="" onSubmit={submitHandler}>
 				<div className="new-expense__controls">
@@ -77,7 +77,7 @@ const ExpenseForm = (props) => {
 					</div>
 				</div>
 				<div className="new-expense__actions">
-					<button onClick={onResetText}>입력 초기화</button>
+					{/*<button onClick={onResetText}>입력 초기화</button>*/}
 					<button type="submit">비용 추가</button>
 					<button onCancel={props.onCancel}>취소</button>
 				</div>
